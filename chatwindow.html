@@ -1,0 +1,129 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="utilities.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="Whatsappstyling.css">
+    <script>
+      $(document).ready(function() {
+
+        var imageurlval= getqueryparamvalue("url");
+        var nameval= getqueryparamvalue("name");
+
+        $('.photo').attr('src', imageurlval);
+        $(".header span").text(nameval);
+
+
+        $("button").click(function() {
+          $(".chatlist").append('<li><div class="sent"><span>' + $('input').val() + '</span></div></li>');
+          $('input').val("");
+
+          $('chatbody').animate({
+          scrollTop: $('.chatlist li:last-child').position().top;
+        }, 'slow');
+        });
+      });
+    </script>
+    <style>
+      .header {
+               height:60px;
+               background-color:#075E55;
+      }
+      .header .imgback {
+                          height:30px;
+                          width:30px;
+                          position:absolute;
+                          left:15px;
+                          top:30px;
+
+
+      }
+      .header .photo {
+                   height:60px;
+                   width:60px;
+                   left:65px;
+                   top:15px;
+                   position:absolute;
+      }
+      .header span {
+                    font-size:30px;
+                    position:absolute;
+                    top:15px;
+                    left:135px;
+                    color:white;
+                    font-weight:normal;
+      }
+      .sent {
+             background-color:lightgreen;
+             width:80%;
+             border-radius:20px;
+             margin-left:120px;
+             margin-bottom:50px;
+             margin-top:50px;
+
+      }
+      .received {
+                 background-color:#FFFFFF;
+                 border-radius:20px;
+                 width:80%;
+      }
+      .chatbody {
+
+                 margin-top:60px;
+      }
+      .chatlist {
+                 list-style-type:none;
+                 margin-top:60px;
+      }
+      input {
+             border-radius:15px;
+             background-color:#FFFFFF;
+             height:40px;
+             font-weight:bold;
+             font-size:20px;
+             width:90%;
+             }
+      .sent span {
+                  margin-left:5px;
+                  font-weight:bold;
+                  font-size:30px;
+      }
+      .footer {
+                   width:100%;
+                   background-color:#FFFFFF;
+                   height:40px;
+                   position:fixed;
+                   bottom:0px;
+                   border-radius:15px;
+      }
+      .chatwindow {
+               background:url("https://img00.deviantart.net/31cf/i/2015/028/8/6/super_hero_whatsapp_background_by_x_ama-d8fr7iz.jpg");
+               height:100%;
+      }
+      button {
+              width:9%;
+              right:7px;
+              height:40px;
+              font-size:25px;
+      }
+    </style>
+  </head>
+<body>
+  <div class="chatwindow">
+    <div class="header">
+      <a href="Whatsapp.html">
+      <img class="imgback" src="https://previews.123rf.com/images/imagecatalogue/imagecatalogue1604/imagecatalogue160400193/54624775-rounded-arrow-left-vector-icon-style-is-outline-icon-symbol-intensive-red-and-black-color-white-back.jpg">
+      </a>
+      <img class="photo">
+      <span></span>
+    </div>
+    <div class="chatbody">
+      <ul class="chatlist">
+      </ul><br><br><br>
+    </div>
+    <div class="footer">
+      <input id="usertext" type="text" name="message" placeholder="Type a Message">
+      <button>Send</button>
+    </div>
+   </div>
+ </body>
+</html>
